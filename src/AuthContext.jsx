@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuthStatus = async () => {
     try {
-      const response = await fetch('/api/auth/me', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/me`, {
         credentials: 'include',
       });
       if (response.ok) {
@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = async (email, password) => {
-    const response = await fetch('/api/auth/login', {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (email, password) => {
-    const response = await fetch('/api/auth/register', {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
